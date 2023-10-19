@@ -1,5 +1,8 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
+import { ativarCalculo } from "./tasks/calculo.js";
+import { ativarConversa } from "./tasks/conversa.js";
+import { ativarMovimento } from "./tasks/movimento.js";
 
 const qualTarefaRealizar = async () => {
   try {
@@ -32,19 +35,19 @@ const qualTarefaRealizar = async () => {
     const { tarefa } = answers;
     switch (tarefa) {
       case 1:
-        movimentarAlbert();
+        await ativarMovimento();
         break;
       case 2:
-        calcularComAlbert();
+        await ativarCalculo();
         break;
       case 3:
-        conversarComAlbert();
+        await ativarConversa();
         break;
       case 4:
         console.log(chalk.bgBlue.white("Obrigado por conversar comigo🤖"));
         process.exit();
       default:
-        console.log("Tarefa invalida");
+        console.log("Tarefa inválida");
         break;
     }
   } catch (err) {
