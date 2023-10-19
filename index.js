@@ -10,9 +10,14 @@ const iniciar = () => {
         message: "Olá qual o seu nome?",
       },
     ])
-    .then(answer => {
-      console.log(answer);
+    .then(resposta => {
+      const { texto } = resposta;
+      console.log(analisarResposta(texto));
     });
 };
+
+const analisarResposta = (resposta) => {
+  return resposta;
+}
 
 iniciar();
